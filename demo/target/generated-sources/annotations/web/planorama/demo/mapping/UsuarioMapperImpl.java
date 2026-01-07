@@ -11,8 +11,8 @@ import web.planorama.demo.entity.UsuarioEntity;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-09-29T11:17:23-0300",
-    comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.4 (Oracle Corporation)"
+    date = "2026-01-07T21:57:20+0000",
+    comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.45.0.v20260101-2150, environment: Java 21.0.9 (Eclipse Adoptium)"
 )
 @Component
 public class UsuarioMapperImpl implements UsuarioMapper {
@@ -51,12 +51,12 @@ public class UsuarioMapperImpl implements UsuarioMapper {
         UsuarioEntity usuarioEntity = new UsuarioEntity();
 
         if ( UsuarioDTO != null ) {
+            usuarioEntity.setDescricaoUsuario( UsuarioDTO.descricaoUsuario() );
+            usuarioEntity.setEmail( UsuarioDTO.email() );
+            usuarioEntity.setFotoUsuario( UsuarioDTO.fotoUsuario() );
             usuarioEntity.setId( UsuarioDTO.id() );
             usuarioEntity.setNome( UsuarioDTO.nome() );
-            usuarioEntity.setEmail( UsuarioDTO.email() );
             usuarioEntity.setSenha( UsuarioDTO.senha() );
-            usuarioEntity.setFotoUsuario( UsuarioDTO.fotoUsuario() );
-            usuarioEntity.setDescricaoUsuario( UsuarioDTO.descricaoUsuario() );
         }
         List<PapelEntity> list = papeis;
         if ( list != null ) {
