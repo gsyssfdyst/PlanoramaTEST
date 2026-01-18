@@ -10,9 +10,10 @@ import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ActiveProfiles;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import web.planorama.demo.entity.PapelEntity;
 import web.planorama.demo.entity.UsuarioEntity;
@@ -22,20 +23,20 @@ import web.planorama.demo.repository.PapelRepository;
 import web.planorama.demo.repository.UsuarioRepository;
 import web.planorama.demo.service.UsuarioService;
 
-@SpringBootTest
-@ActiveProfiles("test")
+@ExtendWith(MockitoExtension.class)
 @DisplayName("CT012 - Remoção do Usuário")
 class UsuarioServiceImplCT012Test {
 
-    private UsuarioService usuarioService;
+    @InjectMocks
+    private UsuarioServiceImpl usuarioService;
 
-    @MockBean
+    @Mock
     private UsuarioRepository usuarioRepository;
 
-    @MockBean
+    @Mock
     private UsuarioMapper usuarioMapper;
 
-    @MockBean
+    @Mock
     private PapelRepository papelRepository;
 
     private UsuarioEntity usuarioEntity;
@@ -43,8 +44,6 @@ class UsuarioServiceImplCT012Test {
 
     @BeforeEach
     void setUp() {
-        usuarioService = new UsuarioServiceImpl(usuarioRepository, usuarioMapper, null, papelRepository);
-
         usuarioId = UUID.randomUUID();
         usuarioEntity = new UsuarioEntity();
         usuarioEntity.setId(usuarioId);
