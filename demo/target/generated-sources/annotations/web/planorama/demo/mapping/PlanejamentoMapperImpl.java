@@ -8,13 +8,15 @@ import org.springframework.stereotype.Component;
 import web.planorama.demo.dto.MateriaPlanejamentoDTO;
 import web.planorama.demo.dto.PlanejamentoDTO;
 import web.planorama.demo.dto.SessaoEstudoDTO;
+import web.planorama.demo.dto.UsuarioDTO;
 import web.planorama.demo.entity.MateriaPlanejamentoEntity;
 import web.planorama.demo.entity.PlanejamentoEntity;
 import web.planorama.demo.entity.SessaoEstudoEntity;
+import web.planorama.demo.entity.UsuarioEntity;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-01-07T21:57:20+0000",
+    date = "2026-01-17T22:39:10-0300",
     comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.45.0.v20260101-2150, environment: Java 21.0.9 (Eclipse Adoptium)"
 )
 @Component
@@ -24,7 +26,7 @@ public class PlanejamentoMapperImpl implements PlanejamentoMapper {
     private UsuarioMapper usuarioMapper;
 
     @Override
-    public PlanejamentoEntity toPlanejamentoEntity(PlanejamentoEntity planejamentoDTO) {
+    public PlanejamentoEntity toPlanejamentoEntity(PlanejamentoDTO planejamentoDTO) {
         if ( planejamentoDTO == null ) {
             return null;
         }
@@ -33,24 +35,18 @@ public class PlanejamentoMapperImpl implements PlanejamentoMapper {
 
         planejamentoEntity.setAnoAplicacao( planejamentoDTO.getAnoAplicacao() );
         planejamentoEntity.setCargo( planejamentoDTO.getCargo() );
-        planejamentoEntity.setCriador( planejamentoDTO.getCriador() );
+        planejamentoEntity.setCriador( usuarioDTOToUsuarioEntity( planejamentoDTO.getCriador() ) );
         List<String> list = planejamentoDTO.getDisponibilidade();
         if ( list != null ) {
             planejamentoEntity.setDisponibilidade( new ArrayList<String>( list ) );
         }
         planejamentoEntity.setHorasDiarias( planejamentoDTO.getHorasDiarias() );
         planejamentoEntity.setId( planejamentoDTO.getId() );
-        List<MateriaPlanejamentoEntity> list1 = planejamentoDTO.getMaterias();
-        if ( list1 != null ) {
-            planejamentoEntity.setMaterias( new ArrayList<MateriaPlanejamentoEntity>( list1 ) );
-        }
+        planejamentoEntity.setMaterias( materiaPlanejamentoDTOListToMateriaPlanejamentoEntityList( planejamentoDTO.getMaterias() ) );
         planejamentoEntity.setNomePlanejamento( planejamentoDTO.getNomePlanejamento() );
         planejamentoEntity.setPlanoArquivado( planejamentoDTO.isPlanoArquivado() );
         planejamentoEntity.setPreDefinidoAdm( planejamentoDTO.isPreDefinidoAdm() );
-        List<SessaoEstudoEntity> list2 = planejamentoDTO.getSessoesEstudo();
-        if ( list2 != null ) {
-            planejamentoEntity.setSessoesEstudo( new ArrayList<SessaoEstudoEntity>( list2 ) );
-        }
+        planejamentoEntity.setSessoesEstudo( sessaoEstudoDTOListToSessaoEstudoEntityList( planejamentoDTO.getSessoesEstudo() ) );
 
         return planejamentoEntity;
     }
@@ -79,6 +75,80 @@ public class PlanejamentoMapperImpl implements PlanejamentoMapper {
         planejamentoDTO.setSessoesEstudo( sessaoEstudoEntityListToSessaoEstudoDTOList( planejamentoEntity.getSessoesEstudo() ) );
 
         return planejamentoDTO;
+    }
+
+    protected UsuarioEntity usuarioDTOToUsuarioEntity(UsuarioDTO usuarioDTO) {
+        if ( usuarioDTO == null ) {
+            return null;
+        }
+
+        UsuarioEntity usuarioEntity = new UsuarioEntity();
+
+        usuarioEntity.setDescricaoUsuario( usuarioDTO.descricaoUsuario() );
+        usuarioEntity.setEmail( usuarioDTO.email() );
+        usuarioEntity.setFotoUsuario( usuarioDTO.fotoUsuario() );
+        usuarioEntity.setId( usuarioDTO.id() );
+        usuarioEntity.setNome( usuarioDTO.nome() );
+        usuarioEntity.setSenha( usuarioDTO.senha() );
+
+        return usuarioEntity;
+    }
+
+    protected MateriaPlanejamentoEntity materiaPlanejamentoDTOToMateriaPlanejamentoEntity(MateriaPlanejamentoDTO materiaPlanejamentoDTO) {
+        if ( materiaPlanejamentoDTO == null ) {
+            return null;
+        }
+
+        MateriaPlanejamentoEntity materiaPlanejamentoEntity = new MateriaPlanejamentoEntity();
+
+        if ( materiaPlanejamentoDTO.getCargaHorariaMateriaPlano() != null ) {
+            materiaPlanejamentoEntity.setCargaHorariaMateriaPlano( materiaPlanejamentoDTO.getCargaHorariaMateriaPlano() );
+        }
+        materiaPlanejamentoEntity.setId( materiaPlanejamentoDTO.getId() );
+        if ( materiaPlanejamentoDTO.getNivelConhecimento() != null ) {
+            materiaPlanejamentoEntity.setNivelConhecimento( materiaPlanejamentoDTO.getNivelConhecimento() );
+        }
+
+        return materiaPlanejamentoEntity;
+    }
+
+    protected List<MateriaPlanejamentoEntity> materiaPlanejamentoDTOListToMateriaPlanejamentoEntityList(List<MateriaPlanejamentoDTO> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<MateriaPlanejamentoEntity> list1 = new ArrayList<MateriaPlanejamentoEntity>( list.size() );
+        for ( MateriaPlanejamentoDTO materiaPlanejamentoDTO : list ) {
+            list1.add( materiaPlanejamentoDTOToMateriaPlanejamentoEntity( materiaPlanejamentoDTO ) );
+        }
+
+        return list1;
+    }
+
+    protected SessaoEstudoEntity sessaoEstudoDTOToSessaoEstudoEntity(SessaoEstudoDTO sessaoEstudoDTO) {
+        if ( sessaoEstudoDTO == null ) {
+            return null;
+        }
+
+        SessaoEstudoEntity sessaoEstudoEntity = new SessaoEstudoEntity();
+
+        sessaoEstudoEntity.setDuracaoSessao( sessaoEstudoDTO.getDuracaoSessao() );
+        sessaoEstudoEntity.setId( sessaoEstudoDTO.getId() );
+
+        return sessaoEstudoEntity;
+    }
+
+    protected List<SessaoEstudoEntity> sessaoEstudoDTOListToSessaoEstudoEntityList(List<SessaoEstudoDTO> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<SessaoEstudoEntity> list1 = new ArrayList<SessaoEstudoEntity>( list.size() );
+        for ( SessaoEstudoDTO sessaoEstudoDTO : list ) {
+            list1.add( sessaoEstudoDTOToSessaoEstudoEntity( sessaoEstudoDTO ) );
+        }
+
+        return list1;
     }
 
     protected MateriaPlanejamentoDTO materiaPlanejamentoEntityToMateriaPlanejamentoDTO(MateriaPlanejamentoEntity materiaPlanejamentoEntity) {
