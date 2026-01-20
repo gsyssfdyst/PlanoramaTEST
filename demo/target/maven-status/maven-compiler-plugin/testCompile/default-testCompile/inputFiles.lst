@@ -7,10 +7,12 @@
 /Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/controller/UsuarioT005Test.java
 /Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/security/AccessDeniedCT008Test.java
 /Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/security/AuthenticationRequiredCT009Test.java
+/Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/service/impl/AssuntoServiceImplCT015Test.java
 /Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/service/impl/MateriaServiceImplCT007Test.java
 /Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/service/impl/PlanejamentoServiceImplCT006Test.java
 /Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/service/impl/PlanejamentoServiceImplCT010Test.java
 /Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/service/impl/PlanejamentoServiceImplCT013Test.java
+/Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/service/impl/PlanejamentoServiceImplCT016Test.java
 /Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/service/impl/PlanejamentoServiceImplTest.java
 /Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/service/impl/RegistrarEstudoServiceImplTest.java
 /Users/programador-rocha/Documents/PlanoramaWeb/demo/src/test/java/web/planorama/demo/service/impl/UsuarioServiceImplCT011Test.java

@@ -13,6 +13,8 @@ web/planorama/demo/security/AuthenticationRequiredCT009Test.class
 web/planorama/demo/controller/RegistrarEstudoControllerTest.class
 web/planorama/demo/controller/RegistrarEstudoCT004Test.class
 web/planorama/demo/service/impl/UsuarioServiceImplTest.class
+web/planorama/demo/service/impl/PlanejamentoServiceImplCT016Test.class
+web/planorama/demo/service/impl/AssuntoServiceImplCT015Test.class
 web/planorama/demo/service/impl/UsuarioServiceImplCT012Test.class
 web/planorama/demo/controller/CriarUsuarioControllerTest.class
 web/planorama/demo/security/AccessDeniedCT008Test.class

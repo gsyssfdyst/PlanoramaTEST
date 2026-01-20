@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: web.planorama.demo.controller.RegistrarEstudoCT004Test
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.886 s -- in web.planorama.demo.controller.RegistrarEstudoCT004Test
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.888 s -- in web.planorama.demo.controller.RegistrarEstudoCT004Test

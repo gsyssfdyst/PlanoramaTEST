@@ -16,8 +16,8 @@ import web.planorama.demo.entity.UsuarioEntity;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-01-17T22:39:10-0300",
-    comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.45.0.v20260101-2150, environment: Java 21.0.9 (Eclipse Adoptium)"
+    date = "2026-01-20T11:58:32-0300",
+    comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.9 (Homebrew)"
 )
 @Component
 public class MateriaMapperImpl implements MateriaMapper {
@@ -33,10 +33,10 @@ public class MateriaMapperImpl implements MateriaMapper {
 
         MateriaEntity materiaEntity = new MateriaEntity();
 
-        materiaEntity.setCriadoPor( usuarioDTOToUsuarioEntity( materiaDTO.getCriadoPor() ) );
         materiaEntity.setId( materiaDTO.getId() );
-        materiaEntity.setListaAssuntos( assuntoDTOListToAssuntoEntityList( materiaDTO.getListaAssuntos() ) );
         materiaEntity.setNomeMateria( materiaDTO.getNomeMateria() );
+        materiaEntity.setCriadoPor( usuarioDTOToUsuarioEntity( materiaDTO.getCriadoPor() ) );
+        materiaEntity.setListaAssuntos( assuntoDTOListToAssuntoEntityList( materiaDTO.getListaAssuntos() ) );
         materiaEntity.setPlanejamentosComMateria( materiaPlanejamentoDTOListToMateriaPlanejamentoEntityList( materiaDTO.getPlanejamentosComMateria() ) );
 
         return materiaEntity;
@@ -50,10 +50,10 @@ public class MateriaMapperImpl implements MateriaMapper {
 
         MateriaDTO materiaDTO = new MateriaDTO();
 
-        materiaDTO.setCriadoPor( usuarioMapper.toUsuarioDTO( materiaEntity.getCriadoPor() ) );
         materiaDTO.setId( materiaEntity.getId() );
-        materiaDTO.setListaAssuntos( assuntoEntityListToAssuntoDTOList( materiaEntity.getListaAssuntos() ) );
         materiaDTO.setNomeMateria( materiaEntity.getNomeMateria() );
+        materiaDTO.setCriadoPor( usuarioMapper.toUsuarioDTO( materiaEntity.getCriadoPor() ) );
+        materiaDTO.setListaAssuntos( assuntoEntityListToAssuntoDTOList( materiaEntity.getListaAssuntos() ) );
         materiaDTO.setPlanejamentosComMateria( materiaPlanejamentoEntityListToMateriaPlanejamentoDTOList( materiaEntity.getPlanejamentosComMateria() ) );
 
         return materiaDTO;
@@ -66,12 +66,12 @@ public class MateriaMapperImpl implements MateriaMapper {
 
         UsuarioEntity usuarioEntity = new UsuarioEntity();
 
-        usuarioEntity.setDescricaoUsuario( usuarioDTO.descricaoUsuario() );
-        usuarioEntity.setEmail( usuarioDTO.email() );
-        usuarioEntity.setFotoUsuario( usuarioDTO.fotoUsuario() );
         usuarioEntity.setId( usuarioDTO.id() );
         usuarioEntity.setNome( usuarioDTO.nome() );
+        usuarioEntity.setEmail( usuarioDTO.email() );
         usuarioEntity.setSenha( usuarioDTO.senha() );
+        usuarioEntity.setFotoUsuario( usuarioDTO.fotoUsuario() );
+        usuarioEntity.setDescricaoUsuario( usuarioDTO.descricaoUsuario() );
 
         return usuarioEntity;
     }
@@ -109,12 +109,12 @@ public class MateriaMapperImpl implements MateriaMapper {
 
         MateriaPlanejamentoEntity materiaPlanejamentoEntity = new MateriaPlanejamentoEntity();
 
-        if ( materiaPlanejamentoDTO.getCargaHorariaMateriaPlano() != null ) {
-            materiaPlanejamentoEntity.setCargaHorariaMateriaPlano( materiaPlanejamentoDTO.getCargaHorariaMateriaPlano() );
-        }
         materiaPlanejamentoEntity.setId( materiaPlanejamentoDTO.getId() );
         if ( materiaPlanejamentoDTO.getNivelConhecimento() != null ) {
             materiaPlanejamentoEntity.setNivelConhecimento( materiaPlanejamentoDTO.getNivelConhecimento() );
+        }
+        if ( materiaPlanejamentoDTO.getCargaHorariaMateriaPlano() != null ) {
+            materiaPlanejamentoEntity.setCargaHorariaMateriaPlano( materiaPlanejamentoDTO.getCargaHorariaMateriaPlano() );
         }
 
         return materiaPlanejamentoEntity;
@@ -166,9 +166,9 @@ public class MateriaMapperImpl implements MateriaMapper {
 
         MateriaPlanejamentoDTO materiaPlanejamentoDTO = new MateriaPlanejamentoDTO();
 
-        materiaPlanejamentoDTO.setCargaHorariaMateriaPlano( materiaPlanejamentoEntity.getCargaHorariaMateriaPlano() );
         materiaPlanejamentoDTO.setId( materiaPlanejamentoEntity.getId() );
         materiaPlanejamentoDTO.setNivelConhecimento( materiaPlanejamentoEntity.getNivelConhecimento() );
+        materiaPlanejamentoDTO.setCargaHorariaMateriaPlano( materiaPlanejamentoEntity.getCargaHorariaMateriaPlano() );
 
         return materiaPlanejamentoDTO;
     }
