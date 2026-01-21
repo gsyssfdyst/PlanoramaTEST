@@ -11,8 +11,8 @@ import web.planorama.demo.entity.SessaoEstudoEntity;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-01-20T11:58:32-0300",
-    comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.9 (Homebrew)"
+    date = "2026-01-21T18:19:09-0300",
+    comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.45.0.v20260101-2150, environment: Java 21.0.9 (Eclipse Adoptium)"
 )
 @Component
 public class SessaoEstudoMapperImpl implements SessaoEstudoMapper {
@@ -30,8 +30,8 @@ public class SessaoEstudoMapperImpl implements SessaoEstudoMapper {
 
         sessaoEstudoDTO.setIdMateriaPlanejamento( sessaoEstudoEntityMateriaPlanejamentoId( sessaoEstudoEntity ) );
         sessaoEstudoDTO.setMateriaDTO( materiaMapper.toMateriaDTO( sessaoEstudoEntityMateriaPlanejamentoMateriaEntity( sessaoEstudoEntity ) ) );
-        sessaoEstudoDTO.setId( sessaoEstudoEntity.getId() );
         sessaoEstudoDTO.setDuracaoSessao( sessaoEstudoEntity.getDuracaoSessao() );
+        sessaoEstudoDTO.setId( sessaoEstudoEntity.getId() );
 
         return sessaoEstudoDTO;
     }
@@ -45,8 +45,8 @@ public class SessaoEstudoMapperImpl implements SessaoEstudoMapper {
         SessaoEstudoEntity sessaoEstudoEntity = new SessaoEstudoEntity();
 
         sessaoEstudoEntity.setMateriaPlanejamento( sessaoEstudoDTOToMateriaPlanejamentoEntity( sessaoEstudoDTO ) );
-        sessaoEstudoEntity.setId( sessaoEstudoDTO.getId() );
         sessaoEstudoEntity.setDuracaoSessao( sessaoEstudoDTO.getDuracaoSessao() );
+        sessaoEstudoEntity.setId( sessaoEstudoDTO.getId() );
 
         return sessaoEstudoEntity;
     }

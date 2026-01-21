@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Testes - PlanoramaWeb</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .summary-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .summary-item h3 {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .summary-item .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .total { color: #333; }
+        .success { color: #28a745; }
+        .failure { color: #dc3545; }
+        .error { color: #e74c3c; }
+        .skipped { color: #ffc107; }
+        .success-rate { color: #667eea; }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th {
+            background: #f8f9fa;
+            color: #333;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-badge.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-badge.failure {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-badge.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-badge.skipped {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .time {
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        
+        .no-tests {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Relatório de Testes</h1>
+            <p>PlanoramaWeb - JUnit 5 + Mockito</p>
+        </div>
+        
+        <div class="summary">
+            <div class="summary-item">
+                <h3>Total de Testes</h3>
+                <div class="number total">164</div>
+            </div>
+            <div class="summary-item">
+                <h3>✅ Sucesso</h3>
+                <div class="number success">164</div>
+            </div>
+            <div class="summary-item">
+                <h3>❌ Falhas</h3>
+                <div class="number failure">0</div>
+            </div>
+            <div class="summary-item">
+                <h3>⚠️ Erros</h3>
+                <div class="number error">0</div>
+            </div>
+            <div class="summary-item">
+                <h3>⏭️ Pulados</h3>
+                <div class="number skipped">0</div>
+            </div>
+            <div class="summary-item">
+                <h3>Taxa de Sucesso</h3>
+                <div class="number success-rate">100.0%</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h2 class="section-title">Detalhes dos Testes</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Classe de Teste</th>
+                        <th>Nome do Teste</th>
+                        <th>Status</th>
+                        <th>Tempo (s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoCT003Test</td>
+                        <td>deveRejeitar25HorasDiarias</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.301s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoCT003Test</td>
+                        <td>deveRejeitarSemNome</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.013s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoCT003Test</td>
+                        <td>deveRejeitarSemCargo</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.013s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoCT003Test</td>
+                        <td>deveRejeitarSemDisponibilidade</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.011s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoCT003Test</td>
+                        <td>deveRejeitarSemMaterias</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.009s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoCT003Test</td>
+                        <td>deveRejeitar0HorasDiarias</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.012s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoCT003Test</td>
+                        <td>deveCriarPlanejamentoComSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.015s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoCT003Test</td>
+                        <td>deveRejeitarAnoInvalido</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.018s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoControllerTest</td>
+                        <td>deveRejeitar25HorasDiarias</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.012s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoControllerTest</td>
+                        <td>deveRejeitarSemNome</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.010s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoControllerTest</td>
+                        <td>deveRejeitarSemCargo</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.010s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoControllerTest</td>
+                        <td>deveRejeitarSemDisponibilidade</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.009s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoControllerTest</td>
+                        <td>deveRejeitarSemMaterias</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.006s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoControllerTest</td>
+                        <td>deveRejeitar0HorasDiarias</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.010s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoControllerTest</td>
+                        <td>deveCriarPlanejamentoComSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.011s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarPlanejamentoControllerTest</td>
+                        <td>deveRejeitarAnoInvalido</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.010s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioCT001Test</td>
+                        <td>deveFalharSemNome</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.009s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioCT001Test</td>
+                        <td>deveFalharSemEmail</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.008s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioCT001Test</td>
+                        <td>deveFalharSemSenha</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.008s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioCT001Test</td>
+                        <td>deveCadastrarSemCamposOpcionais</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.007s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioCT001Test</td>
+                        <td>deveTratarEmailDuplicado</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.008s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioCT001Test</td>
+                        <td>deveCadastrarUsuarioComSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.006s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioControllerTest</td>
+                        <td>deveFalharSemNome</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.056s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioControllerTest</td>
+                        <td>deveFalharSemEmail</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.008s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioControllerTest</td>
+                        <td>deveFalharSemSenha</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.009s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioControllerTest</td>
+                        <td>deveCadastrarSemCamposOpcionais</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.007s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioControllerTest</td>
+                        <td>deveTratarEmailDuplicado</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.015s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.CriarUsuarioControllerTest</td>
+                        <td>deveCadastrarUsuarioComSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.008s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoCT004Test</td>
+                        <td>deveFalharCom25Horas</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.059s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoCT004Test</td>
+                        <td>deveFalharCom0Horas</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.023s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoCT004Test</td>
+                        <td>deveFalharCom0MinSemHoras</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.010s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoCT004Test</td>
+                        <td>deveFalharSemAssunto</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.009s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoCT004Test</td>
+                        <td>deveFalharSemHorasComMinutos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.010s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoCT004Test</td>
+                        <td>deveSucessoHorasSemMinutos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.022s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoCT004Test</td>
+                        <td>deveSucessoHorasEMinutos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.006s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoCT004Test</td>
+                        <td>deveFalharSemNada</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.006s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoControllerTest</td>
+                        <td>deveFalharCom25Horas</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.007s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoControllerTest</td>
+                        <td>deveFalharCom0Horas</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.007s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoControllerTest</td>
+                        <td>deveFalharCom0MinSemHoras</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.007s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoControllerTest</td>
+                        <td>deveFalharSemAssunto</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.008s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoControllerTest</td>
+                        <td>deveFalharSemHorasComMinutos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.006s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoControllerTest</td>
+                        <td>deveSucessoHorasSemMinutos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.008s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoControllerTest</td>
+                        <td>deveSucessoHorasEMinutos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.006s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.RegistrarEstudoControllerTest</td>
+                        <td>deveFalharSemNada</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.009s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarEmailNovoVazio</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.007s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarEmailDuplicado</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.005s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarEmailSenhaVazia</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarEmailSenhaIncorreta</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.005s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarEmailSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.005s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarSenhaCamposVazios</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarSenhaIgual</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.005s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarSenhaAtualIncorreta</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.005s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarSenhaSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.005s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarNomeCamposVazios</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.005s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarNomeSenhaVazia</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarNomeSenhaIncorreta</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarNomeSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.005s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarFotoSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.006s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarFotoArquivoVazio</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.003s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarFotoSenhaIncorreta</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.007s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarDescricaoCampoVazio</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarDescricaoSenhaIncorreta</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.005s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarDescricaoCamposVazios</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.controller.UsuarioT005Test</td>
+                        <td>editarDescricaoSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>adminDeveAcessarAlterarUsuarioComId</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.032s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>estudanteNaoDeveAcessarListarPlanejamentos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>adminDeveAcessarAlterarUsuario</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.020s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>estudanteNaoDeveAcessarAlterarUsuarioComId</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.003s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>estudanteNaoDeveAcessarListarUsuarios</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>adminDeveAcessarRemoverUsuario</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.020s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>adminDeveAcessarHomeAdm</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.008s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>adminDeveAcessarListarPlanejamentos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.023s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>estudanteNaoDeveAcessarAlterarUsuario</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.003s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>adminDeveAcessarListarUsuarios</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.022s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>estudanteNaoDeveAcessarHomeAdm</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AccessDeniedCT008Test</td>
+                        <td>estudanteNaoDeveAcessarRemoverUsuario</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.005s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AuthenticationRequiredCT009Test</td>
+                        <td>usuarioAutenticadoDeveAcessarHome</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.516s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AuthenticationRequiredCT009Test</td>
+                        <td>usuarioAutenticadoAdminDeveAcessarHomeAdm</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.013s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AuthenticationRequiredCT009Test</td>
+                        <td>usuarioNaoAutenticadoNaoDeveAcessarHomeAdm</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.006s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AuthenticationRequiredCT009Test</td>
+                        <td>usuarioNaoAutenticadoNaoDeveAcessarHome</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AuthenticationRequiredCT009Test</td>
+                        <td>usuarioNaoAutenticadoNaoDeveAcessarMeusPlanejamentos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AuthenticationRequiredCT009Test</td>
+                        <td>usuarioAutenticadoDeveAcessarMinhaConta</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.024s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AuthenticationRequiredCT009Test</td>
+                        <td>usuarioNaoAutenticadoNaoDeveAcessarMinhaConta</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AuthenticationRequiredCT009Test</td>
+                        <td>usuarioAutenticadoDeveAcessarMeusPlanejamentos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.017s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AuthenticationRequiredCT009Test</td>
+                        <td>usuarioNaoAutenticadoNaoDeveAcessarPainelDesempenho</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.009s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.security.AuthenticationRequiredCT009Test</td>
+                        <td>usuarioAutenticadoDeveAcessarPainelDesempenho</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.010s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.AssuntoServiceImplCT015Test</td>
+                        <td>testSalvarAssuntoSemVinculacao</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.AssuntoServiceImplCT015Test</td>
+                        <td>testSalvarAssuntoComNomeEmBranco</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.AssuntoServiceImplCT015Test</td>
+                        <td>testSalvarAssuntoSemNome</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.AssuntoServiceImplCT015Test</td>
+                        <td>testSalvarAssuntoComNomeVinculado</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.AssuntoServiceImplCT015Test</td>
+                        <td>testSalvarMultiplosAssuntosParaMesmaMateria</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.MateriaServiceImplCT007Test</td>
+                        <td>deveFalharComNomeEmBranco</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.005s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.MateriaServiceImplCT007Test</td>
+                        <td>deveFalharComNomeEmBrancoComAssuntos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.MateriaServiceImplCT007Test</td>
+                        <td>deveCriarMateriaComSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.003s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.MateriaServiceImplCT007Test</td>
+                        <td>deveFalharSemAssuntos</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT006Test</td>
+                        <td>deveRemoverPlanejamentoComSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.280s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT006Test</td>
+                        <td>deveLancarExcecaoQuandoPlanejamentoNaoExistir</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT006Test</td>
+                        <td>deveLancarExcecaoQuandoIdForNull</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT010Test</td>
+                        <td>arquivarPlanejamentoInexistente</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT010Test</td>
+                        <td>desarquivarPlanejamentoExistente</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.003s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT010Test</td>
+                        <td>arquivarPlanejamentoExistente</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT010Test</td>
+                        <td>desarquivarPlanejamentoInexistente</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoHorasCargo</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoComCargaHoraria0h</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoApenasAno</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoApenasNome</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoHorasAno</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoCargoAno</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoComSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoApenasHoras</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.000s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoComCargaHoraria25h</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.000s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoNomeAno</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.000s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoComAnoAnterior</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoApenasСargo</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoNomeCargo</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT013Test</td>
+                        <td>testEditarPlanoNomeHoras</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT016Test</td>
+                        <td>testGerarCicloComPlanejamentoValido</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT016Test</td>
+                        <td>testGerarCicloComPlanejamentoNull</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.003s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT016Test</td>
+                        <td>testGerarCicloComNivelConhecimentoSeis</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT016Test</td>
+                        <td>testGerarCicloComNivelConhecimentoZero</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT016Test</td>
+                        <td>testGerarCicloComPlanejamentoInexistente</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.003s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT016Test</td>
+                        <td>testGerarCicloComMultiplasMaterias</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT018CT019Test</td>
+                        <td>testListarPlanejamentosSemPlanejamentosExistentes</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT018CT019Test</td>
+                        <td>testListarPlanejamentosComPlanejamentosExistentes</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT018CT019Test</td>
+                        <td>testSelecionarPlanoPredefinidoDoAdmin</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.046s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT018CT019Test</td>
+                        <td>testSelecionarPlanoDeOutroEstudante</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplCT018CT019Test</td>
+                        <td>testSelecionarPlanoInexistente</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplTest</td>
+                        <td>ct006_removerPlanejamento_idExistente_sucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplTest</td>
+                        <td>ct006_removerPlanejamento_idNull_falha</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.003s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.PlanejamentoServiceImplTest</td>
+                        <td>ct006_removerPlanejamento_idInexistente_falha</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.004s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplCT017Test</td>
+                        <td>testVerificaçãoPlanejamentoInexistente</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplCT017Test</td>
+                        <td>testVerificaçãoPlanejamentoNãoConcluido</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplCT017Test</td>
+                        <td>testRegistrarEstudoFaltando1MinParaConclusao</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplCT017Test</td>
+                        <td>testRegistrarEstudoFaltando1HoraParaConclusao</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplCT017Test</td>
+                        <td>testTentarRegistrarEmPlanoConcluido</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplCT017Test</td>
+                        <td>testVerificaçãoPlanejamentoConcluido</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplCT017Test</td>
+                        <td>testVerificaçãoComIdNull</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.000s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplCT020Test</td>
+                        <td>testRefazerPlanejamentoNaoConcluido</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.042s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplCT020Test</td>
+                        <td>testRefazerPlanejamentoInexistente</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplCT020Test</td>
+                        <td>testRefazerPlanejamentoComIdNull</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplCT020Test</td>
+                        <td>testRefazerPlanejamentoConcluido</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.RegistrarEstudoServiceImplTest</td>
+                        <td>deveSalvarRegistroComSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.006s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplCT011Test</td>
+                        <td>findAllEstudantesComEstudantes</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.003s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplCT011Test</td>
+                        <td>findAllAdmins</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplCT011Test</td>
+                        <td>findAllComAdminEEstudantes</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.003s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplCT011Test</td>
+                        <td>findAllComApenasAdmin</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplCT011Test</td>
+                        <td>findAllEstudantesSemEstudantes</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplCT012Test</td>
+                        <td>testRemoverUsuarioInexistenteComErro</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplCT012Test</td>
+                        <td>testMensagemErroUsuarioNaoEncontrado</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplCT012Test</td>
+                        <td>testRemoverMultiplosUsuariosComSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplCT012Test</td>
+                        <td>testRemoverUsuarioExistenteComSucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>ct005_alterarEmail_sucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.039s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>ct005_alterarSenha_sucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>ct005_alterarDescricao_sucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>ct005_alterarNomeUsuario_senhaIncorreta</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>ct005_alterarFotoUsuario_sucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>ct005_alterarEmail_senhaIncorreta</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>deveSalvarPrimeiroUsuarioComoAdmin</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.014s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>deveSalvarUsuarioComum</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>ct005_alterarSenha_senhaIncorreta</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>ct005_alterarNomeUsuario_sucesso</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.001s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>deveLancarExcecaoEmailDuplicado</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>ct005_alterarDescricao_senhaIncorreta</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr><tr>
+                        <td>web.planorama.demo.service.impl.UsuarioServiceImplTest</td>
+                        <td>ct005_alterarFotoUsuario_naoEncontrado</td>
+                        <td><span class="status-badge success">SUCCESS</span></td>
+                        <td class="time">0.002s</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <p>Gerado em: 21/01/2026 às 15:45:49</p>
+            <p>Framework: JUnit 5 + Mockito 5.17.0</p>
+            <p>Tempo total de execução: 6.54s</p>
+        </div>
+    </div>
+</body>
+</html>

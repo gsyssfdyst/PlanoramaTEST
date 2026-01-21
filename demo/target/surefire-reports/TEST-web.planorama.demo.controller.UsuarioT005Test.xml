@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="web.planorama.demo.controller.UsuarioT005Test" time="0.252" tests="20" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="web.planorama.demo.controller.UsuarioT005Test" time="0.309" tests="20" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="BR"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk@21/21.0.9/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/programador-rocha/Documents/PlanoramaWeb/demo/target/surefire/surefirebooter-20260120115834837_3.jar /Users/programador-rocha/Documents/PlanoramaWeb/demo/target/surefire 2026-01-20T11-58-34_790-jvmRun1 surefire-20260120115834837_1tmp surefire_0-20260120115834837_2tmp"/>
+    <property name="sun.java.command" value="/Users/programador-rocha/Documents/PlanoramaWeb/demo/target/surefire/surefirebooter-20260121154123397_3.jar /Users/programador-rocha/Documents/PlanoramaWeb/demo/target/surefire 2026-01-21T15-41-23_348-jvmRun1 surefire-20260121154123397_1tmp surefire_0-20260121154123397_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/programador-rocha/Documents/PlanoramaWeb/demo/target/test-classes:/Users/programador-rocha/Documents/PlanoramaWeb/demo/target/classes:/Users/programador-rocha/.m2/repository/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.5.4/spring-boot-starter-data-jpa-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-starter/3.5.4/spring-boot-starter-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.5.4/spring-boot-starter-logging-3.5.4.jar:/Users/programador-rocha/.m2/repository/ch/qos/logback/logback-classic/1.5.18/logback-classic-1.5.18.jar:/Users/programador-rocha/.m2/repository/ch/qos/logback/logback-core/1.5.18/logback-core-1.5.18.jar:/Users/programador-rocha/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar:/Users/programador-rocha/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/Users/programador-rocha/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar:/Users/programador-rocha/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/programador-rocha/.m2/repository/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.5.4/spring-boot-starter-jdbc-3.5.4.jar:/Users/programador-rocha/.m2/repository/com/zaxxer/HikariCP/6.3.1/HikariCP-6.3.1.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-jdbc/6.2.9/spring-jdbc-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/hibernate/orm/hibernate-core/6.6.22.Final/hibernate-core-6.6.22.Final.jar:/Users/programador-rocha/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/programador-rocha/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/programador-rocha/.m2/repository/org/jboss/logging/jboss-logging/3.6.1.Final/jboss-logging-3.6.1.Final.jar:/Users/programador-rocha/.m2/repository/org/hibernate/common/hibernate-commons-annotations/7.0.3.Final/hibernate-commons-annotations-7.0.3.Final.jar:/Users/programador-rocha/.m2/repository/io/smallrye/jandex/3.2.0/jandex-3.2.0.jar:/Users/programador-rocha/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/Users/programador-rocha/.m2/repository/net/bytebuddy/byte-buddy/1.17.6/byte-buddy-1.17.6.jar:/Users/programador-rocha/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/Users/programador-rocha/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/Users/programador-rocha/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/Users/programador-rocha/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/Users/programador-rocha/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/Users/programador-rocha/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/programador-rocha/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/Users/programador-rocha/.m2/repository/org/springframework/data/spring-data-jpa/3.5.2/spring-data-jpa-3.5.2.jar:/Users/programador-rocha/.m2/repository/org/springframework/data/spring-data-commons/3.5.2/spring-data-commons-3.5.2.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-orm/6.2.9/spring-orm-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-context/6.2.9/spring-context-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-tx/6.2.9/spring-tx-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-beans/6.2.9/spring-beans-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-aspects/6.2.9/spring-aspects-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/aspectj/aspectjweaver/1.9.24/aspectjweaver-1.9.24.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-starter-thymeleaf/3.5.4/spring-boot-starter-thymeleaf-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/thymeleaf/thymeleaf-spring6/3.1.3.RELEASE/thymeleaf-spring6-3.1.3.RELEASE.jar:/Users/programador-rocha/.m2/repository/org/thymeleaf/thymeleaf/3.1.3.RELEASE/thymeleaf-3.1.3.RELEASE.jar:/Users/programador-rocha/.m2/repository/org/attoparser/attoparser/2.0.7.RELEASE/attoparser-2.0.7.RELEASE.jar:/Users/programador-rocha/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.5.4/spring-boot-starter-validation-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.43/tomcat-embed-el-10.1.43.jar:/Users/programador-rocha/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.2.Final/hibernate-validator-8.0.2.Final.jar:/Users/programador-rocha/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.5.4/spring-boot-starter-web-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.5.4/spring-boot-starter-json-3.5.4.jar:/Users/programador-rocha/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.19.2/jackson-databind-2.19.2.jar:/Users/programador-rocha/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.19.2/jackson-annotations-2.19.2.jar:/Users/programador-rocha/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.19.2/jackson-core-2.19.2.jar:/Users/programador-rocha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.19.2/jackson-datatype-jdk8-2.19.2.jar:/Users/programador-rocha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.19.2/jackson-datatype-jsr310-2.19.2.jar:/Users/programador-rocha/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.19.2/jackson-module-parameter-names-2.19.2.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.5.4/spring-boot-starter-tomcat-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.43/tomcat-embed-core-10.1.43.jar:/Users/programador-rocha/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.43/tomcat-embed-websocket-10.1.43.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-web/6.2.9/spring-web-6.2.9.jar:/Users/programador-rocha/.m2/repository/io/micrometer/micrometer-observation/1.15.2/micrometer-observation-1.15.2.jar:/Users/programador-rocha/.m2/repository/io/micrometer/micrometer-commons/1.15.2/micrometer-commons-1.15.2.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-webmvc/6.2.9/spring-webmvc-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-expression/6.2.9/spring-expression-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-devtools/3.5.4/spring-boot-devtools-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot/3.5.4/spring-boot-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.5.4/spring-boot-autoconfigure-3.5.4.jar:/Users/programador-rocha/.m2/repository/com/h2database/h2/2.3.232/h2-2.3.232.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-configuration-processor/3.5.4/spring-boot-configuration-processor-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.5.4/spring-boot-starter-test-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-test/3.5.4/spring-boot-test-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.5.4/spring-boot-test-autoconfigure-3.5.4.jar:/Users/programador-rocha/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/programador-rocha/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/programador-rocha/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/programador-rocha/.m2/repository/net/minidev/json-smart/2.5.2/json-smart-2.5.2.jar:/Users/programador-rocha/.m2/repository/net/minidev/accessors-smart/2.5.2/accessors-smart-2.5.2.jar:/Users/programador-rocha/.m2/repository/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar:/Users/programador-rocha/.m2/repository/org/assertj/assertj-core/3.27.3/assertj-core-3.27.3.jar:/Users/programador-rocha/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/Users/programador-rocha/.m2/repository/org/hamcrest/hamcrest/3.0/hamcrest-3.0.jar:/Users/programador-rocha/.m2/repository/org/junit/jupiter/junit-jupiter/5.12.2/junit-jupiter-5.12.2.jar:/Users/programador-rocha/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.12.2/junit-jupiter-api-5.12.2.jar:/Users/programador-rocha/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/programador-rocha/.m2/repository/org/junit/platform/junit-platform-commons/1.12.2/junit-platform-commons-1.12.2.jar:/Users/programador-rocha/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/programador-rocha/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.12.2/junit-jupiter-params-5.12.2.jar:/Users/programador-rocha/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.12.2/junit-jupiter-engine-5.12.2.jar:/Users/programador-rocha/.m2/repository/org/junit/platform/junit-platform-engine/1.12.2/junit-platform-engine-1.12.2.jar:/Users/programador-rocha/.m2/repository/org/mockito/mockito-core/5.17.0/mockito-core-5.17.0.jar:/Users/programador-rocha/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.6/byte-buddy-agent-1.17.6.jar:/Users/programador-rocha/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/programador-rocha/.m2/repository/org/mockito/mockito-junit-jupiter/5.17.0/mockito-junit-jupiter-5.17.0.jar:/Users/programador-rocha/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/programador-rocha/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-core/6.2.9/spring-core-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-jcl/6.2.9/spring-jcl-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-test/6.2.9/spring-test-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/xmlunit/xmlunit-core/2.10.3/xmlunit-core-2.10.3.jar:/Users/programador-rocha/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.5.4/spring-boot-starter-security-3.5.4.jar:/Users/programador-rocha/.m2/repository/org/springframework/spring-aop/6.2.9/spring-aop-6.2.9.jar:/Users/programador-rocha/.m2/repository/org/springframework/security/spring-security-config/6.5.2/spring-security-config-6.5.2.jar:/Users/programador-rocha/.m2/repository/org/springframework/security/spring-security-web/6.5.2/spring-security-web-6.5.2.jar:/Users/programador-rocha/.m2/repository/org/springframework/security/spring-security-test/6.5.2/spring-security-test-6.5.2.jar:/Users/programador-rocha/.m2/repository/org/springframework/security/spring-security-core/6.5.2/spring-security-core-6.5.2.jar:/Users/programador-rocha/.m2/repository/org/springframework/security/spring-security-crypto/6.5.2/spring-security-crypto-6.5.2.jar:"/>
@@ -34,7 +34,7 @@
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/programador-rocha/Documents/PlanoramaWeb/demo/target/surefire/surefirebooter-20260120115834837_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/programador-rocha/Documents/PlanoramaWeb/demo/target/surefire/surefirebooter-20260121154123397_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="21.0.9"/>
@@ -54,7 +54,7 @@
     <property name="user.dir" value="/Users/programador-rocha/Documents/PlanoramaWeb/demo"/>
     <property name="os.arch" value="aarch64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="32244"/>
+    <property name="PID" value="6783"/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
     <property name="native.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/programador-rocha/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
@@ -67,10 +67,10 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[planoramaweb] "/>
   </properties>
-  <testcase name="editarEmailNovoVazio" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.006">
-    <system-out><![CDATA[2026-01-20T11:58:41.360-03:00  INFO 32244 --- [planoramaweb] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [web.planorama.demo.controller.UsuarioT005Test]: UsuarioT005Test does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-01-20T11:58:41.365-03:00  INFO 32244 --- [planoramaweb] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration web.planorama.demo.DemoApplication for test class web.planorama.demo.controller.UsuarioT005Test
-2026-01-20T11:58:41.368-03:00  INFO 32244 --- [planoramaweb] [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+  <testcase name="editarEmailNovoVazio" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.007">
+    <system-out><![CDATA[2026-01-21T15:41:29.409-03:00  INFO 6783 --- [planoramaweb] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [web.planorama.demo.controller.UsuarioT005Test]: UsuarioT005Test does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-21T15:41:29.435-03:00  INFO 6783 --- [planoramaweb] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration web.planorama.demo.DemoApplication for test class web.planorama.demo.controller.UsuarioT005Test
+2026-01-21T15:41:29.443-03:00  INFO 6783 --- [planoramaweb] [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -81,68 +81,68 @@
 
  :: Spring Boot ::                (v3.5.4)
 
-2026-01-20T11:58:41.382-03:00  INFO 32244 --- [planoramaweb] [           main] w.p.demo.controller.UsuarioT005Test      : Starting UsuarioT005Test using Java 21.0.9 with PID 32244 (started by programador-rocha in /Users/programador-rocha/Documents/PlanoramaWeb/demo)
-2026-01-20T11:58:41.383-03:00  INFO 32244 --- [planoramaweb] [           main] w.p.demo.controller.UsuarioT005Test      : No active profile set, falling back to 1 default profile: "default"
-2026-01-20T11:58:41.482-03:00  INFO 32244 --- [planoramaweb] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2026-01-20T11:58:41.514-03:00  INFO 32244 --- [planoramaweb] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-01-20T11:58:41.520-03:00  INFO 32244 --- [planoramaweb] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-01-20T11:58:41.520-03:00  INFO 32244 --- [planoramaweb] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-01-20T11:58:41.521-03:00  INFO 32244 --- [planoramaweb] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2026-01-20T11:58:41.524-03:00  INFO 32244 --- [planoramaweb] [           main] w.p.demo.controller.UsuarioT005Test      : Started UsuarioT005Test in 0.157 seconds (process running for 6.603)
+2026-01-21T15:41:29.463-03:00  INFO 6783 --- [planoramaweb] [           main] w.p.demo.controller.UsuarioT005Test      : Starting UsuarioT005Test using Java 21.0.9 with PID 6783 (started by programador-rocha in /Users/programador-rocha/Documents/PlanoramaWeb/demo)
+2026-01-21T15:41:29.463-03:00  INFO 6783 --- [planoramaweb] [           main] w.p.demo.controller.UsuarioT005Test      : No active profile set, falling back to 1 default profile: "default"
+2026-01-21T15:41:29.557-03:00  INFO 6783 --- [planoramaweb] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2026-01-21T15:41:29.588-03:00  INFO 6783 --- [planoramaweb] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-21T15:41:29.594-03:00  INFO 6783 --- [planoramaweb] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-01-21T15:41:29.594-03:00  INFO 6783 --- [planoramaweb] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-01-21T15:41:29.595-03:00  INFO 6783 --- [planoramaweb] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-01-21T15:41:29.598-03:00  INFO 6783 --- [planoramaweb] [           main] w.p.demo.controller.UsuarioT005Test      : Started UsuarioT005Test in 0.156 seconds (process running for 6.151)
 
 >>> T005-1 SUCESSO: Campo do novo e-mail vazio foi rejeitado. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarEmailDuplicado" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.003">
+  <testcase name="editarEmailDuplicado" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.005">
     <system-out><![CDATA[
 >>> T005-2 SUCESSO: Tentativa de usar e-mail duplicado foi rejeitada. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarEmailSenhaVazia" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.003">
+  <testcase name="editarEmailSenhaVazia" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.004">
     <system-out><![CDATA[
 >>> T005-3 SUCESSO: Campo de senha atual vazio foi rejeitado. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarEmailSenhaIncorreta" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.003">
+  <testcase name="editarEmailSenhaIncorreta" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.005">
     <system-out><![CDATA[
 >>> T005-4 SUCESSO: Senha atual incorreta foi rejeitada na alteração de e-mail. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarEmailSucesso" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.004">
+  <testcase name="editarEmailSucesso" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.005">
     <system-out><![CDATA[
 >>> T005-5 SUCESSO: E-mail alterado com sucesso e usuário foi deslogado. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarSenhaCamposVazios" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.003">
+  <testcase name="editarSenhaCamposVazios" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.004">
     <system-out><![CDATA[
 >>> T005-6 SUCESSO: Campos de senha vazios foram rejeitados. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarSenhaIgual" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.003">
+  <testcase name="editarSenhaIgual" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.005">
     <system-out><![CDATA[
 >>> T005-7 SUCESSO: Alteração rejeitada quando nova senha é igual à atual. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarSenhaAtualIncorreta" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.003">
+  <testcase name="editarSenhaAtualIncorreta" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.005">
     <system-out><![CDATA[
 >>> T005-8 SUCESSO: Senha atual incorreta foi rejeitada na alteração de senha. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarSenhaSucesso" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.003">
+  <testcase name="editarSenhaSucesso" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.005">
     <system-out><![CDATA[
 >>> T005-9 SUCESSO: Senha alterada com sucesso. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarNomeCamposVazios" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.004">
+  <testcase name="editarNomeCamposVazios" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.005">
     <system-out><![CDATA[
 >>> T005-10 SUCESSO: Campos de nome ou senha vazios foram rejeitados. <<<
 
@@ -154,55 +154,55 @@
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarNomeSenhaIncorreta" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.006">
+  <testcase name="editarNomeSenhaIncorreta" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.004">
     <system-out><![CDATA[
 >>> T005-12 SUCESSO: Senha atual incorreta foi rejeitada na alteração de nome. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarNomeSucesso" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.003">
+  <testcase name="editarNomeSucesso" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.005">
     <system-out><![CDATA[
 >>> T005-13 SUCESSO: Nome de usuário alterado com sucesso. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarFotoSucesso" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.005">
+  <testcase name="editarFotoSucesso" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.006">
     <system-out><![CDATA[
 >>> T005-14 SUCESSO: Foto alterada com sucesso. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarFotoArquivoVazio" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.002">
+  <testcase name="editarFotoArquivoVazio" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.003">
     <system-out><![CDATA[
 >>> T005-15 SUCESSO: Arquivo vazio foi rejeitado. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarFotoSenhaIncorreta" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.004">
+  <testcase name="editarFotoSenhaIncorreta" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.007">
     <system-out><![CDATA[
 >>> T005-16 SUCESSO: Serviço rejeitou alteração de foto por senha incorreta (simulado). <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarDescricaoCampoVazio" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.002">
+  <testcase name="editarDescricaoCampoVazio" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.004">
     <system-out><![CDATA[
 >>> T005-17 SUCESSO: Campo de descrição vazio foi rejeitado. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarDescricaoSenhaIncorreta" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.002">
+  <testcase name="editarDescricaoSenhaIncorreta" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.005">
     <system-out><![CDATA[
 >>> T005-18 SUCESSO: Senha incorreta foi rejeitada na alteração de descrição. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarDescricaoCamposVazios" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.002">
+  <testcase name="editarDescricaoCamposVazios" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.004">
     <system-out><![CDATA[
 >>> T005-19 SUCESSO: Campos de descrição/senha vazios foram rejeitados. <<<
 
 ]]></system-out>
   </testcase>
-  <testcase name="editarDescricaoSucesso" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.002">
+  <testcase name="editarDescricaoSucesso" classname="web.planorama.demo.controller.UsuarioT005Test" time="0.004">
     <system-out><![CDATA[
 >>> T005-20 SUCESSO: Descrição alterada com sucesso. <<<
 

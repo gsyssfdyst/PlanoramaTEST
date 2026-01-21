@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: web.planorama.demo.service.impl.UsuarioServiceImplTest
 -------------------------------------------------------------------------------
-Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 s -- in web.planorama.demo.service.impl.UsuarioServiceImplTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s -- in web.planorama.demo.service.impl.UsuarioServiceImplTest
