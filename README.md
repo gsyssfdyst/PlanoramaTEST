@@ -74,7 +74,7 @@ Antes de iniciar, certifique-se de ter instalado:
 
 ```bash
 # Clone o repositório
-git clone <url-do-repositorio>
+git clone https://github.com/gsyssfdyst/PlanoramaTEST.git
 cd PlanoramaWeb
 ```
 
